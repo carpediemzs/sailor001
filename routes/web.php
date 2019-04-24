@@ -26,3 +26,15 @@ Route::get('/about', 'StaticPagesController@about')
 
 //用户资源路由
 Route::resource('/users', 'UserController');
+
+
+//用户登录页面
+Route::get('/login', 'SessionsController@create')
+    ->name('login');
+//用户登录：创建新会话
+Route::post('/login', 'SessionsController@store')
+    ->name('login');
+//用户登出：销毁会话
+Route::delete('/logout', 'SessionsController@destroy')
+    ->name('logout');
+
