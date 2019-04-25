@@ -10,6 +10,16 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',[
+            'except'=>['create', 'store', 'show']
+        ]);
+        $this->middleware('guest', [
+            'only' => ['create']
+        ]);
+    }
+
     //创建用户的页面
     public function create(){
         return view('users.create');
@@ -40,11 +50,15 @@ class UserController extends Controller
 
     //编辑用户个人资料的页面
     public function edit(User $user){
+        $this->authorize('update', $user);
         return view('users.edit', compact('user'));
     }
 
     //更新用户
     public function update(User $user, Request $request){
+
+        $this->authorize('update', $user);
+
         $this->validate($request, [
             'name' => 'required|max:50',
             'password' => 'nullable|confirmed|min:6'
