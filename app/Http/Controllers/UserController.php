@@ -8,6 +8,7 @@ use App\Models\User;
 
 use Illuminate\Support\Facades\Auth;
 
+
 class UserController extends Controller
 {
     public function __construct()
@@ -78,7 +79,8 @@ class UserController extends Controller
 
     //显示所有用户列表的页面
     public function index(){
-
+        $users = User::paginate(15);
+        return view('users.index', compact('users'));
     }
 
     //显示用户个人信息的页面
