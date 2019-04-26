@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 
 class UserController extends Controller
@@ -14,7 +15,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth',[
-            'except'=>['create', 'store', 'show']
+            'except'=>['create', 'store', 'show', 'confirmEmail']
         ]);
         $this->middleware('guest', [
             'only' => ['create']
@@ -26,7 +27,7 @@ class UserController extends Controller
         return view('users.create');
     }
 
-    //创建用户
+    //创建用户、发送激活邮件
     public function store(Request $request){
 
         $this->validate($request, [
@@ -41,13 +42,29 @@ class UserController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        Auth::login($user);
+        $this->sendEmailConfirmationTo($user);
 
-        session()->flash('success', '欢迎，您将在这里开启一段新的旅程~');
+        session()->flash('success', '验证邮件已发送到你的注册邮箱上，请注意查收!');
 
-        return redirect()->route('users.show', [$user]);
+        return redirect()->route('home');
 
     }
+
+
+    //发送激活邮件函数
+    public function sendEmailConfirmationTo($user){
+        $view = 'emails.confirm';
+        $data = compact('user');
+        $from = '706932644@qq.com';
+        $name = 'sailor';
+        $to = $user->email;
+        $subject = '欢迎 ' . $user->name . ' 注册 sailor 微博的账号！';
+
+        Mail::send($view, $data, function ($message) use ($from, $name, $to, $subject){
+            $message->from($from, $name)->to($to)->subject($subject);
+        });
+    }
+
 
     //编辑用户个人资料的页面
     public function edit(User $user){
@@ -98,6 +115,19 @@ class UserController extends Controller
         session()->flash('success', '您已成功删除该用户！');
 
         return back();
+
+    }
+
+    public function confirmEmail($token){
+        $user = User::where('activation_token', $token)->firstOrFail();
+
+        $user->update(['activated' => true, 'activation_token' => '']);
+
+        Auth::login($user);
+
+        session()->flash('success', '恭喜你，激活成功！');
+
+        return redirect()->route('users.show', [$user]);
 
     }
 

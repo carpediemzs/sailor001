@@ -27,6 +27,10 @@ Route::get('/about', 'StaticPagesController@about')
 //用户资源路由
 Route::resource('/users', 'UserController');
 
+//邮件激活路由
+Route::get('users/create/confirm/{token}', 'UserController@confirmEmail')
+    ->name('users.confirm_email');
+
 
 //用户登录页面
 Route::get('/login', 'SessionsController@create')
