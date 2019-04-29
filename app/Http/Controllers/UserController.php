@@ -102,7 +102,8 @@ class UserController extends Controller
 
     //显示用户个人信息的页面
     public function show(User $user){
-        return view('users.show', compact('user'));
+        $statuses = $user->status()->orderBy('created_at', 'desc')->paginate(10);
+        return view('users.show', compact('user', 'statuses'));
     }
 
     //删除用户
