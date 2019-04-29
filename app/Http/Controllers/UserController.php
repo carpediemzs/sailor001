@@ -55,13 +55,13 @@ class UserController extends Controller
     public function sendEmailConfirmationTo($user){
         $view = 'emails.confirm';
         $data = compact('user');
-        $from = '706932644@qq.com';
-        $name = 'sailor';
+        //$from = '706932644@qq.com';
+        //$name = 'sailor';
         $to = $user->email;
         $subject = '欢迎 ' . $user->name . ' 注册 sailor 微博的账号！';
 
-        Mail::send($view, $data, function ($message) use ($from, $name, $to, $subject){
-            $message->from($from, $name)->to($to)->subject($subject);
+        Mail::send($view, $data, function ($message) use ($to, $subject){
+            $message->to($to)->subject($subject);
         });
     }
 
