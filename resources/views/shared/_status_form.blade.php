@@ -2,7 +2,7 @@
   @include('shared._errors')
   {{ csrf_field() }}
 
-  <textarea class="form-control" rows="3" name="content" placeholder="nihao">
+  <textarea class="form-control" rows="3" name="content" placeholder="聊聊新鲜事儿……">
     {{ old('content') }}
   </textarea>
 

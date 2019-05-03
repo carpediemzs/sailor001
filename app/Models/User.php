@@ -57,7 +57,12 @@ class User extends Authenticatable
         });
     }
 
+    //建立数据模型之间的关联
     public function status(){
         return $this->hasMany(Status::class);
+    }
+
+    public function feed(){
+        return $this->status()->orderBy('created_at', 'desc');
     }
 }
