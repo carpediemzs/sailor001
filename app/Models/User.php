@@ -62,7 +62,40 @@ class User extends Authenticatable
         return $this->hasMany(Status::class);
     }
 
+    //获取微博集合
     public function feed(){
         return $this->status()->orderBy('created_at', 'desc');
     }
+
+    //多对多关联-获取粉丝关系列表
+    public function followers(){
+        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
+    }
+
+    //多对多关联-获取关注的用户列表
+    public function followings(){
+        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id');
+    }
+
+    //关注用户-followings()、sync()
+    public function follow($user_ids){
+        if (!is_array($user_ids)){
+            $user_ids = compact('user_ids');
+        }
+        $this->followings()->sync($user_ids, false);
+    }
+
+    //取消关注用户-detach()
+    public function unfollow($user_ids){
+        if (!is_array($user_ids)){
+            $user_ids = compact('user_ids');
+            $this->followings()->detach($user_ids);
+        }
+    }
+
+    public function isFollowing($user_id){
+        return $this->followings->contains($user_id);
+    }
+
+
 }
