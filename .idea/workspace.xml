@@ -6,9 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a677404-b004-4639-9c2f-f24f63deb84e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Policies/UserPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/UserPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FollowersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+            <state relative-caret-position="525">
+              <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -96,11 +95,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="79" column="30" lean-forward="true" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
+            <state relative-caret-position="259">
+              <caret line="69" column="26" lean-forward="true" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
               <folding>
                 <element signature="e#30#63#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/statuses/_status.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -172,7 +180,6 @@
         <option value="$PROJECT_DIR$/resources/views/statuses/_status.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_05_04_034617_create_followers_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_05_04_045123_create_followers_table.php" />
-        <option value="$PROJECT_DIR$/app/Models/User.php" />
         <option value="$PROJECT_DIR$/database/seeds/FollowersTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/resources/views/static_pages/home.blade.php" />
@@ -186,6 +193,7 @@
         <option value="$PROJECT_DIR$/resources/views/users/_follow_form.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/users/show.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/FollowersController.php" />
+        <option value="$PROJECT_DIR$/app/Models/User.php" />
       </list>
     </option>
   </component>
@@ -526,12 +534,12 @@
       <option name="presentableId" value="Default" />
       <updated>1555907687807</updated>
       <workItem from="1555907689031" duration="17998000" />
-      <workItem from="1556041051406" duration="122094000" />
+      <workItem from="1556041051406" duration="122942000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157826000" />
+    <option name="totallyTimeSpent" value="158674000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="806" extended-state="0" />
@@ -848,13 +856,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/statuses/_status.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="42" lean-forward="true" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/shared/_feed.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -961,23 +962,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FollowersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="79" column="30" lean-forward="true" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
+        <state relative-caret-position="259">
+          <caret line="69" column="26" lean-forward="true" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
           <folding>
             <element signature="e#30#63#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FollowersController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/statuses/_status.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="225">
+          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
         </state>
       </provider>
     </entry>
